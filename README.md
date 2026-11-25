@@ -31,8 +31,16 @@ before and after.
 2. **Measure before optimizing.** No layer is added without a metric from before and after it.
 3. **No invented experience.** The assistant only states what is in the knowledge base. When it doesn't know, it
    says so and offers a way to get in touch.
-4. **Controlled cost.** There is a monthly spending cap, and the assistant degrades gracefully when it reaches it.
+4. **Controlled cost.** There is a monthly spending cap of 10 EUR, and the assistant degrades gracefully when it
+   reaches it ([ADR 2](docs/adr/0002-a-monthly-spending-cap.md)).
 5. **Everything documented.** Every relevant decision is recorded as an ADR in [`docs/adr/`](docs/adr).
+
+## Design decisions
+
+1. [A separate, public repository](docs/adr/0001-a-separate-public-repository.md)
+2. [A monthly spending cap of 10 EUR](docs/adr/0002-a-monthly-spending-cap.md)
+3. [A single EC2 instance with Docker Compose](docs/adr/0003-ec2-with-docker-compose.md) (proposed)
+4. [Answer in the language of the question](docs/adr/0004-answer-in-the-language-of-the-question.md) (proposed)
 
 ## Planned architecture
 
@@ -57,7 +65,8 @@ flowchart LR
 - **Cache:** Redis
 - **Observability:** Langfuse, self-hosted with Docker
 - **CI:** GitHub Actions, running the evaluations on every pull request
-- **Infrastructure:** AWS and Docker (the exact service is still an open decision)
+- **Infrastructure:** AWS and Docker, proposed as a single EC2 instance with Docker Compose
+  ([ADR 3](docs/adr/0003-ec2-with-docker-compose.md))
 - **Tooling:** ruff, pre-commit, gitleaks
 
 ## Phases
