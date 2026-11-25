@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+env/
+
+# Local configuration and data (see .env.example)
+.env
+db.sqlite3
+*.sqlite3
+*.sqlite3-*
+media/
+
+# collectstatic output
+staticfiles/
+
+# Tooling
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+*.log
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
