@@ -1,6 +1,6 @@
 # 3. A single EC2 instance with Docker Compose
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-25
 
 ## Context

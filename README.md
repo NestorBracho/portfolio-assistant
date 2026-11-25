@@ -39,8 +39,8 @@ before and after.
 
 1. [A separate, public repository](docs/adr/0001-a-separate-public-repository.md)
 2. [A monthly spending cap of 10 EUR](docs/adr/0002-a-monthly-spending-cap.md)
-3. [A single EC2 instance with Docker Compose](docs/adr/0003-ec2-with-docker-compose.md) (proposed)
-4. [Answer in the language of the question](docs/adr/0004-answer-in-the-language-of-the-question.md) (proposed)
+3. [A single EC2 instance with Docker Compose](docs/adr/0003-ec2-with-docker-compose.md)
+4. [Answer in the language of the question](docs/adr/0004-answer-in-the-language-of-the-question.md)
 
 ## Planned architecture
 
@@ -65,7 +65,7 @@ flowchart LR
 - **Cache:** Redis
 - **Observability:** Langfuse, self-hosted with Docker
 - **CI:** GitHub Actions, running the evaluations on every pull request
-- **Infrastructure:** AWS and Docker, proposed as a single EC2 instance with Docker Compose
+- **Infrastructure:** AWS and Docker, on a single EC2 instance with Docker Compose
   ([ADR 3](docs/adr/0003-ec2-with-docker-compose.md))
 - **Tooling:** ruff, pre-commit, gitleaks
 

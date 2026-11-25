@@ -1,6 +1,6 @@
 # 4. Answer in the language of the question
 
-- **Status:** Proposed
+- **Status:** Accepted
 - **Date:** 2026-11-25
 
 ## Context
