@@ -1,7 +1,7 @@
 # 3. A single EC2 instance with Docker Compose
 
 - **Status:** Accepted
-- **Date:** 2026-11-25
+- **Date:** 2026-11-25 (Cloudflare in front added the same day, ADR 5)
 
 ## Context
 
@@ -36,5 +36,5 @@ The alternatives were set aside for now:
 - Self-hosted Langfuse needs ClickHouse, a cache and blob storage of its own, which is heavy for a small instance.
   Phase 7 decides between a larger instance, a second one, or Langfuse Cloud's free tier, and records it in an ADR
   of its own.
-- To be confirmed before phase 1: whether the API sits behind Cloudflare, like the main site, on a subdomain of
-  nestorbracho.com.
+- The instance is not reached directly: the API sits behind Cloudflare at `api.nestorbracho.com`
+  ([ADR 5](0005-the-api-behind-cloudflare-on-a-subdomain.md)).

@@ -41,12 +41,14 @@ before and after.
 2. [A monthly spending cap of 10 EUR](docs/adr/0002-a-monthly-spending-cap.md)
 3. [A single EC2 instance with Docker Compose](docs/adr/0003-ec2-with-docker-compose.md)
 4. [Answer in the language of the question](docs/adr/0004-answer-in-the-language-of-the-question.md)
+5. [The API behind Cloudflare, on a subdomain](docs/adr/0005-the-api-behind-cloudflare-on-a-subdomain.md)
 
 ## Planned architecture
 
 ```mermaid
 flowchart LR
-    widget(["Chat widget<br/>nestorbracho.com"]) -->|"HTTPS"| api["Django + DRF API<br/>rate limits, input guardrails"]
+    widget(["Chat widget<br/>nestorbracho.com"]) -->|"HTTPS"| cloudflare["Cloudflare<br/>api.nestorbracho.com"]
+    cloudflare -->|"HTTPS, origin certificate"| api["Django + DRF API<br/>rate limits, input guardrails"]
     api --> router{"Router"}
     router -->|"simple questions"| cheap["Cheaper Claude model"]
     router -->|"complex questions"| strong["Stronger Claude model"]
@@ -66,7 +68,8 @@ flowchart LR
 - **Observability:** Langfuse, self-hosted with Docker
 - **CI:** GitHub Actions, running the evaluations on every pull request
 - **Infrastructure:** AWS and Docker, on a single EC2 instance with Docker Compose
-  ([ADR 3](docs/adr/0003-ec2-with-docker-compose.md))
+  ([ADR 3](docs/adr/0003-ec2-with-docker-compose.md)), behind Cloudflare at `api.nestorbracho.com`
+  ([ADR 5](docs/adr/0005-the-api-behind-cloudflare-on-a-subdomain.md))
 - **Tooling:** ruff, pre-commit, gitleaks
 
 ## Phases

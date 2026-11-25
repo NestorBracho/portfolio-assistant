@@ -7,3 +7,4 @@ Michael Nygard's [format](https://cognitect.com/blog/2011/11/15/documenting-arch
 2. [A monthly spending cap of 10 EUR](0002-a-monthly-spending-cap.md)
 3. [A single EC2 instance with Docker Compose](0003-ec2-with-docker-compose.md)
 4. [Answer in the language of the question](0004-answer-in-the-language-of-the-question.md)
+5. [The API behind Cloudflare, on a subdomain](0005-the-api-behind-cloudflare-on-a-subdomain.md)
