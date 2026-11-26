@@ -1,0 +1,10 @@
+# gitleaks reads this file from the repository root, both in the pre-commit hook and in CI.
+# It keeps every default rule and only adds exceptions for values that are public on purpose.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Certificate credential IDs on the CV: they are public so anyone can verify the certificate"
+regexTarget = "line"
+regexes = ['''Credential ID: UC-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}''']

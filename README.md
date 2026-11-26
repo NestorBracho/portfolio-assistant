@@ -1,8 +1,10 @@
 # Portfolio assistant
 
+[![Checks](https://github.com/NestorBracho/portfolio-assistant/actions/workflows/checks.yml/badge.svg)](https://github.com/NestorBracho/portfolio-assistant/actions/workflows/checks.yml)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 ![Status: planning](https://img.shields.io/badge/status-planning-lightgrey)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 The backend of an AI assistant for my site, **[nestorbracho.com](https://nestorbracho.com)**: a chat on the home
 page that answers questions about my experience, my projects and the stack I work with. It has two audiences:
@@ -110,10 +112,17 @@ the real `.env` is never committed.
 The repository is public. It never holds secrets or client data, and the knowledge base only contains what is
 already public on my CV and my site. Some clients are presented anonymously, and the assistant must keep them that
 way even when asked directly. The full rules are in section 3 of the [brief](docs/brief.md#3-restricciones-de-contenido-obligatorias).
-gitleaks runs before every commit to keep keys out of the history.
+gitleaks runs before every commit to keep keys out of the history, and CI
+([`.github/workflows/checks.yml`](.github/workflows/checks.yml)) scans the whole history again on every push and pull
+request. The few values that are public on purpose, like certificate IDs on the CV, are listed in
+[`.gitleaks.toml`](.gitleaks.toml).
 
 ## How this was built
 
 The brief, the phases and the decisions in [`docs/adr/`](docs/adr) are mine. The code is written with Claude Code as
 a pair programmer, following the BMAD Method for planning; commits it co-wrote say so in a `Co-Authored-By: Claude`
 trailer.
+
+## License
+
+The code is released under the [MIT License](LICENSE).
